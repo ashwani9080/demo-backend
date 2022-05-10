@@ -11,6 +11,6 @@ const { connectDb } = require('./utils/db');
 middlewareConfig(app, express);
 app.use("/", router);
 
-app.listen(port,process.env.IP_ADDRESS,async (req, res) => {
+app.listen(port, async (req, res) => {
     await connectDb();
 });
