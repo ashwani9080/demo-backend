@@ -5,14 +5,17 @@ const { users } = require('./users');
 const { login } = require('./login');
 const { products } = require('./product');
 const { signup } = require('./signup');
+const { salons } = require('./salons');
 
 //check api calls are from whitelisted ips
-router.use(verifyIp);
+router.use('/',(res,er,next)=>{next()});
 
 router.use('/login', login);
 router.use('/signup', signup);
 
-router.use('/users', verifyTokenMiddleWare, users);
-router.use('/products', verifyTokenMiddleWare, products)
+router.use('/users', users);
+router.use('/products', products)
+router.use('/salons', salons)
+
 
 module.exports = { router };
